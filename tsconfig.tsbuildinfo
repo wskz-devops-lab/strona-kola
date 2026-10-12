@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/main.tsx","./src/components/Footer.tsx","./src/components/Navbar.tsx","./src/components/ProjectsGrid.tsx","./src/components/RedTeamShowcase.tsx","./src/components/StatsSection.tsx","./src/components/TerminalHero.tsx","./src/components/VdiShowcase.tsx","./src/data/projectsData.ts"],"version":"5.9.3"}

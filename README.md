@@ -1,8 +1,20 @@
-# Strona Wizytówkowa Koła Naukowego DevOps & Virtualization Lab (WSKZ)
+# Portal Internetowy Koła Naukowego DevOps & Virtualization Lab (WSKZ)
 
-To repozytorium zawiera publiczny kod portalu internetowego Koła Naukowego WSKZ, hostowanego bezpośrednio przez **GitHub Pages**.
+Repozytorium zawiera kod źródłowy publicznego portalu internetowego Koła Naukowego WSKZ, wdrażanego bezpośrednio w usłudze **GitHub Pages**.
 
-## Status Wdrożenia
-- Repozytorium jest publiczne, gotowe na wklejenie kodu generowanego przez **Kimi K3**.
-- Szczegółowa specyfikacja promptowa znajduje się w pliku: [`SPECYFIKACJA_I_PROMPT_DLA_KIMI_K3.md`](./SPECYFIKACJA_I_PROMPT_DLA_KIMI_K3.md).
-- Skonfigurowany workflow GitHub Actions (`.github/workflows/deploy.yml`) automatycznie publikuje build do GitHub Pages po każdym pushu do gałęzi `main`.
+## Architektura i Wdrożenie
+- Aplikacja typu Single Page Application / Static Site oparta o React 19, TypeScript, Vite, Tailwind CSS, Framer Motion i Lucide Icons.
+- Pipeline Continuous Integration / Continuous Deployment (`.github/workflows/deploy.yml`) odpowiada za automatyczną kompilację projektu oraz publikację artefaktów na GitHub Pages po zatwierdzeniu zmian w gałęzi `main`.
+
+## Dokumentacja dla studentów
+
+**Zacznij tutaj:** [`DOKUMENTACJA_DLA_STUDENTOW.md`](./DOKUMENTACJA_DLA_STUDENTOW.md) — pełny przewodnik krok po kroku: wymagania, uruchomienie lokalne (`npm ci && npm run dev`), struktura projektu, edycja treści oraz **kompletna instrukcja publikacji na GitHub Pages** z rozwiązywaniem typowych błędów CI.
+
+## Szybki start
+
+```bash
+npm ci          # instalacja zależności (wymaga package-lock.json — zawsze commituj ten plik!)
+npm run dev     # serwer deweloperski → http://localhost:5173
+npm run build   # build produkcyjny → dist/
+git push        # push na main → GitHub Actions automatycznie wdraża na Pages
+```

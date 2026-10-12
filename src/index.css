@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-void text-slate-200 font-sans antialiased;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(16, 185, 129, 0.07), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 110%, rgba(139, 92, 246, 0.06), transparent);
+}
+
+::selection {
+  background: rgba(16, 185, 129, 0.35);
+  color: #ecfdf5;
+}
+
+/* Cienki, terminalowy scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #090a0f;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2330;
+  border-radius: 6px;
+  border: 2px solid #090a0f;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #10b981;
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-panel/70 backdrop-blur-md border border-edge rounded-xl;
+  }
+  .glass-panel-hover {
+    @apply transition-all duration-300 hover:border-neon/40 hover:shadow-neon-sm;
+  }
+  .section-title {
+    @apply font-mono text-sm uppercase tracking-[0.3em] text-neon;
+  }
+  .mono-badge {
+    @apply font-mono text-[11px] px-2 py-0.5 rounded border border-edge bg-void/60 text-slate-400;
+  }
+}
+
+/* Siatka w tle sekcji hero */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(31, 35, 48, 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(31, 35, 48, 0.5) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 30%, transparent 75%);
+}
+
+/* Efekt CRT scanline dla terminala */
+.terminal-scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.12) 0px,
+    rgba(0, 0, 0, 0.12) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  border-radius: inherit;
+}
+
+.terminal-glow {
+  text-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+}
