@@ -1,103 +1,110 @@
-import { motion } from 'framer-motion';
-import { BookOpen, Github, Mail, ShieldCheck } from 'lucide-react';
+import { BookOpen, Github, Mail, TerminalSquare } from 'lucide-react';
 import { CONTACT } from '../data/projectsData';
 
 export default function Footer() {
   return (
-    <footer id="kontakt" className="border-t border-edge/60 px-4 sm:px-6 py-16 bg-panel/30">
+    <footer className="border-t border-edge px-4 sm:px-6 py-12 bg-panel/60">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <p className="section-title mb-3">// kontakt & informacja</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-50 tracking-tight">
-            Kontakt z laboratorium
-          </h2>
-          <p className="mt-4 text-slate-400 max-w-3xl leading-relaxed">
-            Koło Naukowe DevOps & Virtualization Lab przy Wyższej Szkole Kształcenia Zawodowego (WSKZ)
-            prowadzi warsztaty inżynierskie, badania nad wirtualizacją KVM oraz projekty open-source.
-            Wszelkie zapytania rekrutacyjne i merytoryczne prosimy kierować bezpośrednio do opiekuna koła.
-          </p>
-        </motion.div>
-
-        <div className="mt-10 grid md:grid-cols-3 gap-6">
-          {/* O Kole */}
-          <div className="glass-panel p-6">
-            <p className="flex items-center gap-2 font-mono text-sm text-neon mb-4">
-              <ShieldCheck size={16} /> FORMUŁA PRACY
-            </p>
-            <p className="text-sm text-slate-400 leading-relaxed">
-              Zajęcia laboratoryjne odbywają się zdalnie w cyklu dwutygodniowym. Uczestnicy realizują
-              indywidualne lub zespołowe mini-projekty w wybranym obszarze: od podstaw Linuksa i Dockera
-              po suwerenne serwery AI oraz audyty Red Teaming.
+        <div className="grid md:grid-cols-3 gap-8 pb-8 border-b border-edge">
+          {/* Kolumna 1: Identyfikacja */}
+          <div>
+            <div className="flex items-center gap-2.5 mb-3">
+              <span className="p-1.5 rounded-md bg-neon/10 border border-neon/30 text-neon">
+                <TerminalSquare size={16} />
+              </span>
+              <span className="font-mono font-bold text-sm text-ink">
+                [WSKZ <span className="text-neon">//</span> DEVOPS-LAB]
+              </span>
+            </div>
+            <p className="text-xs text-ink-soft leading-relaxed">
+              Koło Naukowe DevOps & Virtualization Lab przy Wyższej Szkole Kształcenia Zawodowego
+              (WSKZ). Praktyczna wirtualizacja (Proxmox VE & OpenNebula), konteneryzacja,
+              automatyzacja IaC, lokalne serwery AI i cyberbezpieczeństwo.
             </p>
           </div>
 
-          {/* Repozytoria i Kod */}
-          <div className="glass-panel p-6">
-            <p className="flex items-center gap-2 font-mono text-sm text-cyanic mb-4">
-              <BookOpen size={16} /> KOD I DOKUMENTACJA
+          {/* Kolumna 2: Repozytoria organizacji */}
+          <div>
+            <p className="font-mono text-xs font-semibold text-cyanic mb-3 flex items-center gap-1.5">
+              <BookOpen size={14} /> EKOSYSTEM REPOZYTORIÓW
             </p>
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-2 text-xs font-mono">
               <li>
                 <a
-                  href={CONTACT.githubOrg}
+                  href={CONTACT.materialsSiteUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-2 text-slate-300 hover:text-cyanic transition-colors"
+                  className="text-ink-soft hover:text-neon transition-colors"
                 >
-                  <Github size={15} className="shrink-0" /> Organizacja GitHub: wskz-devops-lab
+                  → Baza Wiedzy (MkDocs — Projekty 1–16 i Poradniki)
                 </a>
               </li>
               <li>
                 <a
-                  href="https://github.com/wskz-devops-lab/materialy-dydaktyczne"
+                  href="https://github.com/wskz-devops-lab/architektura-proxmox"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-2 text-slate-400 hover:text-cyanic transition-colors"
+                  className="text-ink-soft hover:text-cyanic transition-colors"
                 >
-                  <BookOpen size={15} className="shrink-0" /> Repozytorium Bazy Wiedzy
+                  → Track A: Architektura Proxmox VE (KVM, LXC, Ceph)
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/wskz-devops-lab/architektura-vdi-opennebula"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-ink-soft hover:text-cyanic transition-colors"
+                >
+                  → Track B: Architektura OpenNebula (AlmaLinux 9)
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/wskz-devops-lab/pakiet-red-teaming"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-ink-soft hover:text-violet transition-colors"
+                >
+                  → Pakiet Audytu Bezpieczeństwa Red Teaming
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Kontakt bezpośredni do opiekuna */}
-          <div className="glass-panel p-6">
-            <p className="flex items-center gap-2 font-mono text-sm text-violet mb-4">
-              <Mail size={16} /> OPIEKUN KOŁA
+          {/* Kolumna 3: Kontakt do opiekuna */}
+          <div>
+            <p className="font-mono text-xs font-semibold text-violet mb-3 flex items-center gap-1.5">
+              <Mail size={14} /> OPIEKUN KOŁA: {CONTACT.supervisor.toUpperCase()}
             </p>
-            <p className="text-sm font-medium text-slate-200 mb-2">
-              {CONTACT.supervisor}
-            </p>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-1.5 text-xs font-mono mb-4">
               {CONTACT.emails.map((email) => (
                 <li key={email}>
                   <a
                     href={`mailto:${email}`}
-                    className="font-mono text-xs text-slate-400 hover:text-neon transition-colors break-all"
+                    className="text-ink-soft hover:text-neon transition-colors"
                   >
                     {email}
                   </a>
                 </li>
               ))}
             </ul>
-            <p className="mt-4 text-xs text-slate-500">
-              Brak formularzy kontaktowych w celu ochrony przed automatycznym spamem.
-            </p>
+            <a
+              href={CONTACT.githubOrg}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-mono text-ink-muted hover:text-ink transition-colors"
+            >
+              <Github size={14} /> github.com/wskz-devops-lab
+            </a>
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-edge/60 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="font-mono text-xs text-slate-600">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-xs text-ink-muted">
+          <p>
             [WSKZ <span className="text-neon">//</span> DEVOPS-LAB] © 2026 · Wyższa Szkoła Kształcenia Zawodowego
           </p>
-          <p className="font-mono text-xs text-slate-600">
-            Praktyczna Wirtualizacja, Konteneryzacja i Bezpieczeństwo
-          </p>
+          <p>Spotkania: poniedziałki po 19:00 (zdalnie) · Konsultacje: środy</p>
         </div>
       </div>
     </footer>

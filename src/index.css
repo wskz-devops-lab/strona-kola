@@ -2,8 +2,166 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ==========================================================================
+   SYSTEM MOTYWÓW: JASNY (INŻYNIERSKI BLUEPRINT) & CIEMNY (KONSOLA NOC)
+   ========================================================================== */
 :root {
-  color-scheme: dark;
+  /* Surowe wartości dla motywu jasnego (Engineering Blueprint Paper) */
+  --void-light: #f4f6fa;
+  --panel-light: #ffffff;
+  --surface-light: #eaf0f6;
+  --edge-light: #cbd5e1;
+  --ink-light: #0f172a;
+  --ink-soft-light: #334155;
+  --ink-muted-light: #64748b;
+  --neon-light: #059669;
+  --cyanic-light: #0284c7;
+  --violet-light: #6d28d9;
+  --amber-light: #d97706;
+  --danger-light: #dc2626;
+  --scrollbar-track-light: #e2e8f0;
+  --scrollbar-thumb-light: #94a3b8;
+  --grid-line-light: rgba(100, 116, 139, 0.16);
+  --shadow-neon-sm-light: 0 4px 16px rgba(5, 150, 105, 0.14);
+  --shadow-neon-md-light: 0 8px 28px rgba(5, 150, 105, 0.22);
+  --shadow-cyan-md-light: 0 8px 28px rgba(2, 132, 199, 0.18);
+  --shadow-violet-md-light: 0 8px 28px rgba(109, 40, 217, 0.18);
+
+  /* Surowe wartości dla motywu ciemnego (NOC Telemetry Console) */
+  --void-dark: #080a0f;
+  --panel-dark: #10141e;
+  --surface-dark: #161c2a;
+  --edge-dark: #21293a;
+  --ink-dark: #f1f5f9;
+  --ink-soft-dark: #94a3b8;
+  --ink-muted-dark: #64748b;
+  --neon-dark: #10b981;
+  --cyanic-dark: #06b6d4;
+  --violet-dark: #8b5cf6;
+  --amber-dark: #f59e0b;
+  --danger-dark: #ef4444;
+  --scrollbar-track-dark: #090a0f;
+  --scrollbar-thumb-dark: #262e42;
+  --grid-line-dark: rgba(33, 41, 58, 0.65);
+  --shadow-neon-sm-dark: 0 0 12px rgba(16, 185, 129, 0.32);
+  --shadow-neon-md-dark: 0 0 24px rgba(16, 185, 129, 0.42);
+  --shadow-cyan-md-dark: 0 0 24px rgba(6, 182, 212, 0.36);
+  --shadow-violet-md-dark: 0 0 24px rgba(139, 92, 246, 0.36);
+
+  /* Domyślne przypisanie (fallback dla starszych przeglądarek bez light-dark()) */
+  --color-void: var(--void-light);
+  --color-panel: var(--panel-light);
+  --color-surface: var(--surface-light);
+  --color-edge: var(--edge-light);
+  --color-ink: var(--ink-light);
+  --color-ink-soft: var(--ink-soft-light);
+  --color-ink-muted: var(--ink-muted-light);
+  --color-neon: var(--neon-light);
+  --color-cyanic: var(--cyanic-light);
+  --color-violet: var(--violet-light);
+  --color-amber: var(--amber-light);
+  --color-danger: var(--danger-light);
+  --color-scrollbar-track: var(--scrollbar-track-light);
+  --color-scrollbar-thumb: var(--scrollbar-thumb-light);
+  --grid-line: var(--grid-line-light);
+  --shadow-neon-sm: var(--shadow-neon-sm-light);
+  --shadow-neon-md: var(--shadow-neon-md-light);
+  --shadow-cyan-md: var(--shadow-cyan-md-light);
+  --shadow-violet-md: var(--shadow-violet-md-light);
+
+  @media (prefers-color-scheme: dark) {
+    --color-void: var(--void-dark);
+    --color-panel: var(--panel-dark);
+    --color-surface: var(--surface-dark);
+    --color-edge: var(--edge-dark);
+    --color-ink: var(--ink-dark);
+    --color-ink-soft: var(--ink-soft-dark);
+    --color-ink-muted: var(--ink-muted-dark);
+    --color-neon: var(--neon-dark);
+    --color-cyanic: var(--cyanic-dark);
+    --color-violet: var(--violet-dark);
+    --color-amber: var(--amber-dark);
+    --color-danger: var(--danger-dark);
+    --color-scrollbar-track: var(--scrollbar-track-dark);
+    --color-scrollbar-thumb: var(--scrollbar-thumb-dark);
+    --grid-line: var(--grid-line-dark);
+    --shadow-neon-sm: var(--shadow-neon-sm-dark);
+    --shadow-neon-md: var(--shadow-neon-md-dark);
+    --shadow-cyan-md: var(--shadow-cyan-md-dark);
+    --shadow-violet-md: var(--shadow-violet-md-dark);
+  }
+
+  /* Obsługa ręcznego przełączenia w meta[name="color-scheme"] dla fallbacku */
+  &:has(> head > meta[name="color-scheme"][content="dark"]) {
+    color-scheme: dark;
+    --color-void: var(--void-dark);
+    --color-panel: var(--panel-dark);
+    --color-surface: var(--surface-dark);
+    --color-edge: var(--edge-dark);
+    --color-ink: var(--ink-dark);
+    --color-ink-soft: var(--ink-soft-dark);
+    --color-ink-muted: var(--ink-muted-dark);
+    --color-neon: var(--neon-dark);
+    --color-cyanic: var(--cyanic-dark);
+    --color-violet: var(--violet-dark);
+    --color-amber: var(--amber-dark);
+    --color-danger: var(--danger-dark);
+    --color-scrollbar-track: var(--scrollbar-track-dark);
+    --color-scrollbar-thumb: var(--scrollbar-thumb-dark);
+    --grid-line: var(--grid-line-dark);
+    --shadow-neon-sm: var(--shadow-neon-sm-dark);
+    --shadow-neon-md: var(--shadow-neon-md-dark);
+    --shadow-cyan-md: var(--shadow-cyan-md-dark);
+    --shadow-violet-md: var(--shadow-violet-md-dark);
+  }
+
+  &:has(> head > meta[name="color-scheme"][content="light"]) {
+    color-scheme: light;
+    --color-void: var(--void-light);
+    --color-panel: var(--panel-light);
+    --color-surface: var(--surface-light);
+    --color-edge: var(--edge-light);
+    --color-ink: var(--ink-light);
+    --color-ink-soft: var(--ink-soft-light);
+    --color-ink-muted: var(--ink-muted-light);
+    --color-neon: var(--neon-light);
+    --color-cyanic: var(--cyanic-light);
+    --color-violet: var(--violet-light);
+    --color-amber: var(--amber-light);
+    --color-danger: var(--danger-light);
+    --color-scrollbar-track: var(--scrollbar-track-light);
+    --color-scrollbar-thumb: var(--scrollbar-thumb-light);
+    --grid-line: var(--grid-line-light);
+    --shadow-neon-sm: var(--shadow-neon-sm-light);
+    --shadow-neon-md: var(--shadow-neon-md-light);
+    --shadow-cyan-md: var(--shadow-cyan-md-light);
+    --shadow-violet-md: var(--shadow-violet-md-light);
+  }
+
+  /* Nowoczesna funkcja light-dark() reagująca automatycznie na obliczony color-scheme */
+  @supports (color: light-dark(white, black)) {
+    --color-void: light-dark(var(--void-light), var(--void-dark));
+    --color-panel: light-dark(var(--panel-light), var(--panel-dark));
+    --color-surface: light-dark(var(--surface-light), var(--surface-dark));
+    --color-edge: light-dark(var(--edge-light), var(--edge-dark));
+    --color-ink: light-dark(var(--ink-light), var(--ink-dark));
+    --color-ink-soft: light-dark(var(--ink-soft-light), var(--ink-soft-dark));
+    --color-ink-muted: light-dark(var(--ink-muted-light), var(--ink-muted-dark));
+    --color-neon: light-dark(var(--neon-light), var(--neon-dark));
+    --color-cyanic: light-dark(var(--cyanic-light), var(--cyanic-dark));
+    --color-violet: light-dark(var(--violet-light), var(--violet-dark));
+    --color-amber: light-dark(var(--amber-light), var(--amber-dark));
+    --color-danger: light-dark(var(--danger-light), var(--danger-dark));
+    --color-scrollbar-track: light-dark(var(--scrollbar-track-light), var(--scrollbar-track-dark));
+    --color-scrollbar-thumb: light-dark(var(--scrollbar-thumb-light), var(--scrollbar-thumb-dark));
+    --grid-line: light-dark(var(--grid-line-light), var(--grid-line-dark));
+  }
+
+  /* MANDATORY: Automatically adapt native UI to user system preferences */
+  color-scheme: light dark;
+  accent-color: var(--color-neon);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
 }
 
 html {
@@ -11,59 +169,108 @@ html {
 }
 
 body {
-  @apply bg-void text-slate-200 font-sans antialiased;
+  background-color: var(--color-void);
+  color: var(--color-ink);
+  @apply font-sans antialiased transition-colors duration-200;
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(16, 185, 129, 0.07), transparent),
-    radial-gradient(ellipse 60% 40% at 80% 110%, rgba(139, 92, 246, 0.06), transparent);
+    radial-gradient(ellipse 80% 45% at 50% -15%, rgba(16, 185, 129, 0.08), transparent),
+    radial-gradient(ellipse 60% 40% at 85% 105%, rgba(6, 182, 212, 0.06), transparent);
 }
 
 ::selection {
-  background: rgba(16, 185, 129, 0.35);
-  color: #ecfdf5;
+  background: rgba(16, 185, 129, 0.28);
+  color: var(--color-ink);
 }
 
-/* Cienki, terminalowy scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+/* Fallback WebKit dla starszych przeglądarek bez obsługi scrollbar-color */
+@supports not (scrollbar-color: auto) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-scrollbar-track);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-scrollbar-thumb);
+    border-radius: 6px;
+  }
 }
-::-webkit-scrollbar-track {
-  background: #090a0f;
-}
-::-webkit-scrollbar-thumb {
-  background: #1f2330;
-  border-radius: 6px;
-  border: 2px solid #090a0f;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #10b981;
+
+/* Wymuszenie ciemnego motywu dla konsol terminalowych (component-specific-light-dark-theme) */
+.terminal-dark-surface {
+  color-scheme: only dark;
+  background-color: #090b10;
+  color: #f1f5f9;
+  accent-color: #10b981;
+  border-color: #1f2637;
 }
 
 @layer components {
   .glass-panel {
-    @apply bg-panel/70 backdrop-blur-md border border-edge rounded-xl;
+    background-color: var(--color-panel);
+    border: 1px solid var(--color-edge);
+    @apply rounded-xl shadow-sm transition-colors duration-200;
   }
-  .glass-panel-hover {
-    @apply transition-all duration-300 hover:border-neon/40 hover:shadow-neon-sm;
+
+  /* Karta inżynieryjna ze znacznikami narożnymi typu Blueprint */
+  .blueprint-card {
+    background-color: var(--color-panel);
+    border: 1px solid var(--color-edge);
+    position: relative;
+    @apply rounded-xl transition-all duration-200;
   }
+
+  .blueprint-card::before,
+  .blueprint-card::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-color: var(--color-neon);
+    opacity: 0.45;
+    pointer-events: none;
+  }
+
+  .blueprint-card::before {
+    top: -1px;
+    left: -1px;
+    border-top: 2px solid var(--color-neon);
+    border-left: 2px solid var(--color-neon);
+    border-top-left-radius: 4px;
+  }
+
+  .blueprint-card::after {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 2px solid var(--color-cyanic);
+    border-right: 2px solid var(--color-cyanic);
+    border-bottom-right-radius: 4px;
+  }
+
   .section-title {
-    @apply font-mono text-sm uppercase tracking-[0.3em] text-neon;
+    @apply font-mono text-xs sm:text-sm uppercase tracking-[0.22em] text-neon font-semibold;
   }
+
+  .section-coord {
+    @apply font-mono text-[11px] px-2.5 py-0.5 rounded border border-edge bg-surface text-ink-muted tracking-wider;
+  }
+
   .mono-badge {
-    @apply font-mono text-[11px] px-2 py-0.5 rounded border border-edge bg-void/60 text-slate-400;
+    @apply font-mono text-[11px] px-2 py-0.5 rounded border border-edge bg-surface text-ink-soft;
   }
 }
 
-/* Siatka w tle sekcji hero */
+/* Siatka inżynierska w tle */
 .grid-bg {
   background-image:
-    linear-gradient(rgba(31, 35, 48, 0.5) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(31, 35, 48, 0.5) 1px, transparent 1px);
-  background-size: 44px 44px;
-  mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 30%, transparent 75%);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 92% 75% at 50% 30%, black 35%, transparent 80%);
 }
 
-/* Efekt CRT scanline dla terminala */
+/* Efekt CRT scanline dla ciemnych okien terminala */
 .terminal-scanlines::after {
   content: '';
   position: absolute;
@@ -71,8 +278,8 @@ body {
   pointer-events: none;
   background: repeating-linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.12) 0px,
-    rgba(0, 0, 0, 0.12) 1px,
+    rgba(0, 0, 0, 0.14) 0px,
+    rgba(0, 0, 0, 0.14) 1px,
     transparent 1px,
     transparent 3px
   );
@@ -80,5 +287,11 @@ body {
 }
 
 .terminal-glow {
-  text-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+  text-shadow: 0 0 8px rgba(16, 185, 129, 0.45);
+}
+
+/* Natywne okno modalne <dialog> dla galerii */
+dialog.lightbox-dialog::backdrop {
+  background-color: rgba(8, 10, 15, 0.82);
+  backdrop-filter: blur(6px);
 }

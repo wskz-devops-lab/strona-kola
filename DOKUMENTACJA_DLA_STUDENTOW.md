@@ -103,26 +103,30 @@ npm run preview   # serwuje zbudowane dist/ lokalnie (test przed publikacją)
 ```
 strona-kola/
 ├── .github/workflows/deploy.yml   # Automatyczne wdrożenie na GitHub Pages
-├── index.html                     # Punkt wejścia HTML (tytuł, fonty JetBrains Mono)
+├── public/img/                    # Zrzuty ekranu z laboratorium (VDI, Proxmox, OpenNebula)
+├── index.html                     # Punkt wejścia HTML (meta color-scheme, fonty JetBrains Mono)
 ├── package.json                   # Skrypty npm + lista zależności
 ├── package-lock.json              # Dokładne wersje zależności (wymagane w repozytorium)
 ├── vite.config.ts                 # Konfiguracja bundlera (base: './' — obsługa GitHub Pages)
-├── tailwind.config.js             # Konfiguracja palety barw i animacji Tailwind CSS
+├── tailwind.config.js             # Konfiguracja palety barw (zmienne CSS) i animacji Tailwind
 ├── tsconfig.json                  # Konfiguracja TypeScript
 └── src/
     ├── main.tsx                   # Punkt wejścia aplikacji React
     ├── App.tsx                    # Kompozycja głównych sekcji portalu
-    ├── index.css                  # Style globalne Tailwind i klasy pomocnicze
+    ├── index.css                  # System motywów Jasny (Blueprint) / Ciemny (NOC) i klasy UI
     ├── data/
-    │   └── projectsData.ts        # Kompletny zbiór danych: 16 projektów, VDI, audyt Red Team, kontakt
+    │   └── projectsData.ts        # Kompletny zbiór danych: 16 projektów, VDI, galeria, FAQ, kontakt
     └── components/
-        ├── Navbar.tsx             # Pasek nawigacyjny ze statusem klastra Proxmox
-        ├── TerminalHero.tsx       # Interaktywny terminal z obsługą poleceń
-        ├── StatsSection.tsx       # Kafelki telemetryczne infrastruktury
-        ├── ProjectsGrid.tsx       # Siatka projektów z filtrowaniem ścieżek
-        ├── VdiShowcase.tsx        # Prezentacja architektury Golden Image i noVNC
+        ├── Navbar.tsx             # Pasek nawigacyjny z przełącznikiem motywu (Jasny/Ciemny)
+        ├── TerminalHero.tsx       # Hero ze statusem spotkań i interaktywnym terminalem
+        ├── StatsSection.tsx       # Kafelki telemetryczne w stylu kart inżynierskich Blueprint
+        ├── OnboardingSection.tsx  # Organizacja spotkań, profil z ankiet i checklista na start
+        ├── ProjectsGrid.tsx       # Konfigurator ścieżki i siatka 16 projektów z linkami MkDocs
+        ├── VdiShowcase.tsx        # Porównanie Track A (Proxmox) i Track B (OpenNebula) + VDI
+        ├── LabGallerySection.tsx  # Galeria zrzutów ekranu (<dialog>) i Przewodniki Inżynierskie
         ├── RedTeamShowcase.tsx    # Prezentacja 5 filarów audytu bezpieczeństwa
-        └── Footer.tsx             # Odnośniki do bazy wiedzy i kontaktu
+        ├── RecruitmentAndFaq.tsx  # Karta zapisów Google Forms WSKZ, kontakt i sekcja FAQ
+        └── Footer.tsx             # Odnośniki do ekosystemu repozytoriów i kontaktu
 ```
 
 **Zasada numer 1:** treści merytoryczne (opisy projektów, wyniki audytu, linki) trzymamy

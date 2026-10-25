@@ -3,7 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="DevOps & Virtualization Lab — Koło Naukowe WSKZ. Wirtualizacja Proxmox, VDI, konteneryzacja, AI i cyberbezpieczeństwo." />
+    <!-- MANDATORY: Declare support for both light and dark themes -->
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        document.querySelector('meta[name="color-scheme"]').content =
+          localStorage.getItem('color-scheme') ?? 'light dark';
+      } catch {}
+    </script>
+    <meta
+      name="description"
+      content="DevOps & Virtualization Lab — Koło Naukowe WSKZ. Wirtualizacja Proxmox VE i OpenNebula, bezklientowe VDI, konteneryzacja, lokalne serwery AI i cyberbezpieczeństwo."
+    />
     <title>WSKZ // DevOps & Virtualization Lab</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
