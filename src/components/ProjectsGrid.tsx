@@ -173,7 +173,7 @@ export default function ProjectsGrid() {
         >
           <div className="flex items-center gap-2.5 mb-3">
             <span className="section-coord">SYS.02 // KATALOG 1–16</span>
-            <p className="section-title">// program inżynierski & własne inicjatywy</p>
+            <p className="section-title">// projekty laboratoryjne & własne inicjatywy</p>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-ink tracking-tight">
             Katalog 16 Projektów Laboratoryjnych
