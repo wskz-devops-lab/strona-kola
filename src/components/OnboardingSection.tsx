@@ -128,7 +128,7 @@ export default function OnboardingSection() {
                 rel="noreferrer"
                 className="inline-flex items-center gap-1.5 text-neon hover:underline"
               >
-                <MessageSquare size={14} /> Dołącz do komunikatora Zulip <ArrowUpRight size={14} />
+                <MessageSquare size={14} /> Komunikator Zulip (dostęp na zaproszenie opiekuna) <ArrowUpRight size={14} />
               </a>
             </div>
           </div>

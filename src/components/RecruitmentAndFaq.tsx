@@ -211,7 +211,7 @@ export default function RecruitmentAndFaq() {
                   rel="noreferrer"
                   className="text-neon hover:underline inline-flex items-center gap-1"
                 >
-                  Komunikator Zulip <ArrowUpRight size={13} />
+                  Komunikator Zulip (na zaproszenie) <ArrowUpRight size={13} />
                 </a>
                 <a
                   href={CONTACT.consultationsCalendarUrl}

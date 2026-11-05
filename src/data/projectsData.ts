@@ -648,7 +648,7 @@ export const CONTACT = {
   materialsSiteUrl: 'https://wskz-devops-lab.github.io/materialy-dydaktyczne/',
   materialsUrl: 'https://github.com/wskz-devops-lab/materialy-dydaktyczne',
   githubOrg: 'https://github.com/wskz-devops-lab',
-  zulipInviteUrl: 'https://zullip.zarnecki.org/join/yzyh6hrc6i5vro5clnl3uzyb/',
+  zulipInviteUrl: 'https://zullip.zarnecki.org',
   consultationsCalendarUrl: 'https://chmura.zarnecki.org/apps/calendar/appointment/Pk86wK62KEGr',
   supervisor: 'Przemysław Żarnecki',
 };
